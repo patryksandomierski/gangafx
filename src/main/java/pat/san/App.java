@@ -8,6 +8,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
+import lombok.extern.log4j.Log4j2;
 
 import java.io.IOException;
 import java.net.URL;
@@ -15,6 +16,7 @@ import java.net.URL;
 /**
  * JavaFX App
  */
+@Log4j2
 public class App extends Application {
 
     public static void main(String[] args) {
@@ -31,7 +33,7 @@ public class App extends Application {
         stage.setScene(scene);
         stage.show();
 
-        EventHandler<MouseEvent> eventHandler = e -> System.out.println("Hello World");
+        EventHandler<MouseEvent> eventHandler = e -> log.debug("button pressed");
 
         Button button = (Button) scene.lookup("#button");
         button.addEventHandler(MouseEvent.MOUSE_CLICKED, eventHandler);
